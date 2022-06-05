@@ -1,0 +1,63 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.App {
+  min-height: 100vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card_weather {
+  width: min(400px, 80%);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 1px 1px 10px #000;
+}
+.title_card {
+  color: #3e90ec;
+}
+.weather_information {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+.weather_dregrees .cloud {
+  display: flex;
+  font-size: 150px;
+  color: #3e90ec;
+}
+.weather_dregrees p {
+  font-size: 20px;
+  font-weight: 600;
+}
+.weather_list .title_card {
+  margin-bottom: 20px;
+}
+.weather_list p {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.weather_list span{
+  color: #3e90ec;
+  font-size: 18px;
+  font-weight: 700;
+}
+.weather_btn {
+  margin-top: 20px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 15px;
+  background-color: #3e90ec;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.weather_btn:active {
+  box-shadow: 1px 1px 10px #000;
+  transition: box-shadow 100ms ease;
+}
