@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 
-const CardWeather = ({weather, clouds}) => {
+const CardWeather = ({weather}) => {
 
   const [degrees, setDegrees] = useState(true)
 
@@ -18,7 +18,7 @@ const CardWeather = ({weather, clouds}) => {
   }
   
   return (
-    <div className='card_weather' style={{backgroundColor: `${clouds < 50 ? styleColor.ligth : styleColor.dark}`}} >
+    <div className='card_weather' style={{backgroundColor: `${weather?.clouds < 50 ? styleColor.ligth : styleColor.dark}`}} >
       <h1 className='title_card'>Weather App</h1>
       <h3 className='title_card'>{weather?.name} {weather?.sys.country}</h3>
       <div className='weather_information'>

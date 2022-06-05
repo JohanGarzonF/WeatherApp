@@ -35,15 +35,14 @@ function App() {
     }
   }, [latLon])
   
-  const clouds = weather?.clouds;
+  console.log(weather)
   
 
 
   return (
-    <div className="App" style={{backgroundImage: `url(${clouds < 50 ? imagesBack[0]: imagesBack[1]})`}}>
+    <div className="App" style={{backgroundImage: `url(${weather?.clouds < 50 ? imagesBack[0]: imagesBack[1]})`}}>
       <CardWeather
         weather={weather}
-        clouds={clouds}
       />
     </div>
   )
