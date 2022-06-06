@@ -36,6 +36,7 @@ function App() {
     }
     
   }, [latLon])  
+  console.log(weather)
 
   return (
     <div className="App" style={{backgroundImage: `url(${weather?.clouds.all < 50 ? imagesBack[0] : imagesBack[1]})`}}>

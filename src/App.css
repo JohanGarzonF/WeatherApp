@@ -12,33 +12,38 @@
   align-items: center;
 }
 .card_weather {
-  width: min(400px, 80%);
+  width: min(400px, 80%); 
   padding: 20px;
   border-radius: 15px;
   background-color: #1d1c1ca2;
   color: #fff;
-  box-shadow: 1px 1px 10px #000;
 }
 .title_card {
-  color: #3e90ec;
+  color: #fff;
 }
 .weather_information {
   display: flex;
-  gap: 20px;
+  justify-content: space-around;
   margin-top: 20px;
 }
 .weather_dregrees {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: space-around;
 }
 .weather_dregrees img {
   width: 220px;
-  height: 150px;
+  aspect-ratio: 1;
 }
 .weather_dregrees p {
   font-size: 20px;
   font-weight: 600;
+}
+.weather_list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .weather_list .title_card {
   margin-bottom: 20px;
@@ -53,6 +58,9 @@
   color: #3e90ec;
   font-size: 18px;
   font-weight: 700;
+}
+.temp {
+  font-size: 18px;
 }
 .weather_btn {
   margin-top: 20px;
@@ -71,11 +79,12 @@
 }
 @media(max-width: 538px) {
   .weather_dregrees img {
-    width: 180px;
-    height: 100px;
+    width: 160px;
+    aspect-ratio: 1;
   }
   .weather_list p {
     font-size: 14px;
+    text-align: center;
   }
   .weather_list span{
     font-size: 14px;
