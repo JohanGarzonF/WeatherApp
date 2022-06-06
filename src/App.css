@@ -2,9 +2,13 @@
   margin: 0;
   padding: 0;
 }
+.blue-tx {
+  color: #3e90ec;
+}
 .App {
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   min-height: 100vh;
   text-align: center;
   display: flex;
@@ -15,16 +19,13 @@
   width: min(400px, 80%); 
   padding: 20px;
   border-radius: 15px;
-  background-color: #1d1c1ca2;
-  color: #fff;
-}
-.title_card {
+  background-color: #00000086;
   color: #fff;
 }
 .weather_information {
   display: flex;
   justify-content: space-around;
-  margin-top: 20px;
+  margin: 20px 0;
 }
 .weather_dregrees {
   display: flex;
@@ -55,12 +56,16 @@
   text-align: left;
 }
 .weather_list span{
-  color: #3e90ec;
+  color: #0b74ec;
   font-size: 18px;
   font-weight: 700;
 }
-.temp {
+.time {
   font-size: 18px;
+  font-style: italic;
+}
+.temp {
+  font-size: 22px;
 }
 .weather_btn {
   margin-top: 20px;

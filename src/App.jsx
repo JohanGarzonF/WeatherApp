@@ -3,9 +3,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import CardWeather from './components/CardWeather'
 
-const imagesBack = ['https://img.freepik.com/foto-gratis/cielo-nubes-blancas-fondo-brillante-paisaje-dia_38021-299.jpg?w=2000',
-  'https://i0.wp.com/hipertextual.com/wp-content/uploads/2021/06/neenu-vimalkumar-tkd0usnnxfo-unsplash-scaled.jpeg?fit=1200%2C795&quality=50&strip=all&ssl=1',
-]
+const imageBack = 'https://services.meteored.com/img/article/efectos-domino-creados-por-los-oceanos-que-ya-cambian-el-clima-global-319551-1_1024.jpg'
 
 
 function App() {
@@ -39,7 +37,7 @@ function App() {
   console.log(weather)
 
   return (
-    <div className="App" style={{backgroundImage: `url(${weather?.clouds.all < 50 ? imagesBack[0] : imagesBack[1]})`}}>
+    <div className="App" style={{backgroundImage: `url(${imageBack})`}}>
       <CardWeather
         weather={weather}
       />

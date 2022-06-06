@@ -1,29 +1,34 @@
 import React, { useState, useEffect } from 'react'
 
+const week = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
 
 
 const CardWeather = ({weather}) => {
 
-  const [degrees, setDegrees] = useState(true)
+  const [degrees, setDegrees] = useState(true);
 
-  const celFar = () => setDegrees(!degrees)
+  const celFar = () => setDegrees(!degrees);
 
   const tempt = {
     celcius: `${(weather?.main.temp - 273.15).toFixed(2)}°C`,
     fahrenheit: `${((weather?.main.temp - 273.15)*1.8 + 32).toFixed(2)}°F`
   }
   
-  //https://cdn.pixabay.com/photo/2020/06/23/01/14/cloud-5330980_640.png
-  let icon = weather?.weather[0].icon
-  console.log(icon)
+  let icon = weather?.weather[0].icon;
+
+  let actualDate = new Date();
+  let day = week[actualDate.getDay()];
+  let dayMonth = actualDate.getDate();
+  let month = months[actualDate.getMonth()]
 
   return (
     <div className='card_weather'>
       <div className='weather_information'>
         <div className='weather_dregrees'>
           <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt='Cloud_image'/>
-          <h3 className='title_card'>{weather?.name} {weather?.sys.country}</h3>
-          <h4 className='temp'>{degrees ? tempt.celcius : tempt.fahrenheit}</h4>
+          <h3>{weather?.name}, {weather?.sys.country}</h3>
+          <p className='time'>{`${day} ${dayMonth} ${month}`}</p>
         </div>
         <div className='weather_list'>
           <div>
