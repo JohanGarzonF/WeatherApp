@@ -13,7 +13,6 @@ function App() {
   
   const [latLon, setLatLon] = useState({})
   const [weather, setWeather] = useState()
-  const [image, setImage] = useState()
 
 
   useEffect(() => {
@@ -35,23 +34,11 @@ function App() {
         .then(res => setWeather(res.data))
         .catch(err => console.log(err))
     }
-  }, [latLon])
-  
-  useEffect(() => {
-    if(weather?.clouds < 50){
-      setImage(imagesBack[0])
-    } else {
-      setImage(imagesBack[1])
-    }
-  }, [image])
-  
-  
-  console.log(weather)
-  
-
+    
+  }, [latLon])  
 
   return (
-    <div className="App" style={{backgroundImage: `url(${image})`}}>
+    <div className="App" style={{backgroundImage: `url(${weather?.clouds.all < 50 ? imagesBack[0] : imagesBack[1]})`}}>
       <CardWeather
         weather={weather}
       />
