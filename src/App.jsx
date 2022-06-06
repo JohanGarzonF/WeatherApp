@@ -4,7 +4,7 @@ import './App.css'
 import CardWeather from './components/CardWeather'
 
 const imagesBack = ['https://img.freepik.com/foto-gratis/cielo-nubes-blancas-fondo-brillante-paisaje-dia_38021-299.jpg?w=2000',
-  'https://images.freeimages.com/images/large-previews/29b/dark-clouds-2-1152417.jpg',
+  'https://i0.wp.com/hipertextual.com/wp-content/uploads/2021/06/neenu-vimalkumar-tkd0usnnxfo-unsplash-scaled.jpeg?fit=1200%2C795&quality=50&strip=all&ssl=1',
 ]
 
 
@@ -13,6 +13,8 @@ function App() {
   
   const [latLon, setLatLon] = useState({})
   const [weather, setWeather] = useState()
+  const [image, setImage] = useState()
+
 
   useEffect(() => {
     const success = pos => {
@@ -35,12 +37,21 @@ function App() {
     }
   }, [latLon])
   
+  useEffect(() => {
+    if(weather?.clouds < 50){
+      setImage(imagesBack[0])
+    } else {
+      setImage(imagesBack[1])
+    }
+  }, [image])
+  
+  
   console.log(weather)
   
 
 
   return (
-    <div className="App" style={{backgroundImage: `url(${weather?.clouds < 50 ? imagesBack[0]: imagesBack[1]})`}}>
+    <div className="App" style={{backgroundImage: `url(${image})`}}>
       <CardWeather
         weather={weather}
       />

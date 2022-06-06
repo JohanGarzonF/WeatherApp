@@ -1,9 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
+const styleColor = {
+  ligth : '#f7eeeebe',
+  dark: '#000000a2'
+}
+const colorText = {
+  white: '#fff',
+  black: '#000'
+}
 
 const CardWeather = ({weather}) => {
 
   const [degrees, setDegrees] = useState(true)
+  const [colorBg, setColorBg] = useState()
+  const [colorTx, setColorText] = useState()
 
   const celFar = () => setDegrees(!degrees)
 
@@ -11,14 +21,19 @@ const CardWeather = ({weather}) => {
     celcius: `${(weather?.main.temp - 273.15).toFixed(2)}°C`,
     fahrenheit: `${((weather?.main.temp - 273.15)*1.8 + 32).toFixed(2)}°F`
   }
+  useEffect(() => {
+    if(weather?.clouds < 50) {
+      setColorBg(styleColor.ligth)
+      setColorText(colorText.black)
+    } else {
+      setColorBg(styleColor.dark)
+      setColorText(colorText.white)
+    }
+  }, [])
   
-  const styleColor = {
-    ligth : '#f7eeeebe',
-    dark: '#2e2a2aa2'
-  }
   
   return (
-    <div className='card_weather' style={{backgroundColor: `${weather?.clouds < 50 ? styleColor.ligth : styleColor.dark}`}} >
+    <div className='card_weather' style={{backgroundColor: `${colorBg}`, color: colorTx}} >
       <h1 className='title_card'>Weather App</h1>
       <h3 className='title_card'>{weather?.name} {weather?.sys.country}</h3>
       <div className='weather_information'>
