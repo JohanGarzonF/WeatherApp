@@ -15,6 +15,8 @@
   width: min(400px, 80%);
   padding: 20px;
   border-radius: 15px;
+  background-color: #1d1c1ca2;
+  color: #fff;
   box-shadow: 1px 1px 10px #000;
 }
 .title_card {
@@ -25,10 +27,14 @@
   gap: 20px;
   margin-top: 20px;
 }
-.weather_dregrees .cloud {
+.weather_dregrees {
   display: flex;
-  font-size: 150px;
-  color: #3e90ec;
+  flex-direction: column;
+  justify-content: center;
+}
+.weather_dregrees img {
+  width: 220px;
+  height: 150px;
 }
 .weather_dregrees p {
   font-size: 20px;
@@ -62,4 +68,19 @@
 .weather_btn:active {
   box-shadow: 1px 1px 10px #000;
   transition: box-shadow 100ms ease;
+}
+@media(max-width: 538px) {
+  .weather_dregrees img {
+    width: 180px;
+    height: 100px;
+  }
+  .weather_list p {
+    font-size: 14px;
+  }
+  .weather_list span{
+    font-size: 14px;
+  }
+  .weather_btn {
+    font-size: 12px;
+  }
 }
