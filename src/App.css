@@ -82,6 +82,19 @@
   box-shadow: 1px 1px 10px #000;
   transition: box-shadow 100ms ease;
 }
+.load_bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #00000086;
+  color: #fff;
+}
+.load_bg img {
+  margin-bottom: 20px;
+}
 @media(max-width: 538px) {
   .weather_dregrees img {
     width: 160px;

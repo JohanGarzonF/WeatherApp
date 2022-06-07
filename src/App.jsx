@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import './App.css'
 import CardWeather from './components/CardWeather'
+import Loader from './components/Loader'
 
 const imageBack = 'https://services.meteored.com/img/article/efectos-domino-creados-por-los-oceanos-que-ya-cambian-el-clima-global-319551-1_1024.jpg'
 
@@ -11,7 +12,7 @@ function App() {
   
   const [latLon, setLatLon] = useState({})
   const [weather, setWeather] = useState()
-
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const success = pos => {
@@ -29,7 +30,10 @@ function App() {
       const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${latLon.lat}&lon=${latLon.lon}&appid=${API_KEY}`
 
       axios.get(URL)
-        .then(res => setWeather(res.data))
+        .then(res => {
+          setWeather(res.data)
+          setIsLoading(false)
+        })
         .catch(err => console.log(err))
     }
     
@@ -38,9 +42,14 @@ function App() {
 
   return (
     <div className="App" style={{backgroundImage: `url(${imageBack})`}}>
-      <CardWeather
-        weather={weather}
-      />
+      {
+        isLoading ?
+          <Loader/>
+          :
+          <CardWeather
+            weather={weather}
+          />
+      }
     </div>
   )
 }

@@ -26,8 +26,14 @@ const CardWeather = ({weather}) => {
     <div className='card_weather'>
       <div className='weather_information'>
         <div className='weather_dregrees'>
-          <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt='Cloud_image'/>
-          <h3 className='blue-tx'>{weather?.name}, {weather?.sys.country}</h3>
+          <img 
+            src={weather && `http://openweathermap.org/img/wn/${icon}@2x.png`} 
+            alt='Cloud_image'
+          />
+          <h3 
+            className='blue-tx'
+            >{weather?.name}, {weather?.sys.country}
+          </h3>
           <p className='time'>{`${day} ${dayMonth} ${month}`}</p>
         </div>
         <div className='weather_list'>
