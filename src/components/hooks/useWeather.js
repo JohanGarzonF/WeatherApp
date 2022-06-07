@@ -5,6 +5,7 @@ const useWeather = () => {
   const [latLon, setLatLon] = useState({})
   const [weather, setWeather] = useState()
   const [isLoading, setIsLoading] = useState(true)
+  const [textLocation, setTextLocation] = useState('')
 
   useEffect(() => {
     const success = pos => {
@@ -13,6 +14,9 @@ const useWeather = () => {
       setLatLon({lat, lon})
     }
     navigator.geolocation.getCurrentPosition(success)
+    setTimeout(()=> {
+      setTextLocation(`Please, activate the location and reload`)
+    }, 4000)
   }, [])
 
   useEffect(() => {
@@ -31,7 +35,7 @@ const useWeather = () => {
     
   }, [latLon])
 
-  return { weather, isLoading }
+  return { weather, isLoading, textLocation }
 }
 
 export default useWeather

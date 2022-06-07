@@ -8,13 +8,15 @@ const imageBack = 'https://services.meteored.com/img/article/efectos-domino-crea
 
 function App() {
 
-  const {weather, isLoading} = useWeather()
+  const {weather, isLoading, textLocation} = useWeather()
 
   return (
     <div className="App" style={{backgroundImage: `url(${imageBack})`}}>
       {
         isLoading ?
-          <Loader/>
+          <Loader
+            textLocation={textLocation}
+          />
           :
           <CardWeather
             weather={weather}

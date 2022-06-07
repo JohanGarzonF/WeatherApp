@@ -57,6 +57,7 @@
 }
 .weather_list span{
   color: #0b74ec;
+  font-style: italic;
   font-size: 18px;
   font-weight: 700;
 }
@@ -72,7 +73,7 @@
   padding: 5px 10px;
   border: none;
   border-radius: 15px;
-  background-color: #3e90ec;
+  background-color: #0b74ec;
   color: #fff;
   font-size: 16px;
   font-weight: 600;
