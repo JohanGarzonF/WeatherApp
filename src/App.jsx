@@ -1,7 +1,6 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
 import './App.css'
 import CardWeather from './components/CardWeather'
+import useWeather from './components/hooks/useWeather'
 import Loader from './components/Loader'
 
 const imageBack = 'https://services.meteored.com/img/article/efectos-domino-creados-por-los-oceanos-que-ya-cambian-el-clima-global-319551-1_1024.jpg'
@@ -9,36 +8,7 @@ const imageBack = 'https://services.meteored.com/img/article/efectos-domino-crea
 
 function App() {
 
-  
-  const [latLon, setLatLon] = useState({})
-  const [weather, setWeather] = useState()
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    const success = pos => {
-      const lat = pos.coords.latitude;
-      const lon = pos.coords.longitude
-      setLatLon({lat, lon})
-    }
-    navigator.geolocation.getCurrentPosition(success)
-  }, [])
-
-  useEffect(() => {
-    if(latLon.lat !== undefined){
-
-      const API_KEY = '19ffae71903ed89d1ec21ba007876556'
-      const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${latLon.lat}&lon=${latLon.lon}&appid=${API_KEY}`
-
-      axios.get(URL)
-        .then(res => {
-          setWeather(res.data)
-          setIsLoading(false)
-        })
-        .catch(err => console.log(err))
-    }
-    
-  }, [latLon])  
-  console.log(weather)
+  const {weather, isLoading} = useWeather()
 
   return (
     <div className="App" style={{backgroundImage: `url(${imageBack})`}}>

@@ -7,6 +7,7 @@ const Loader = () => {
       <h2>
         Loading...
       </h2>
+      <p>please, active the location</p>
     </div>
   )
 }
